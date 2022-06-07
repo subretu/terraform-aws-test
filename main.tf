@@ -6,3 +6,7 @@ provider "aws" {
   secret_key = var.aws_secret_key
   region = "ap-northeast-1"
 }
+
+module "VPC" {
+  source = "./modules/common/vpc"
+}
