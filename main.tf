@@ -8,5 +8,5 @@ provider "aws" {
 }
 
 module "VPC" {
-  source = "./modules/common/vpc"
+  source = "./modules/vpc"
 }
