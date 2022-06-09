@@ -7,10 +7,6 @@ provider "aws" {
   region = "ap-northeast-1"
 }
 
-module "VPC" {
+module "vpc" {
   source = "./modules/vpc"
-}
-
-module "subnet" {
-  source = "./modules/subnet"
 }
