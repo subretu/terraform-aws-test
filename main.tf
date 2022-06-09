@@ -10,3 +10,7 @@ provider "aws" {
 module "VPC" {
   source = "./modules/vpc"
 }
+
+module "subnet" {
+  source = "./subnet/vpc"
+}
