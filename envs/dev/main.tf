@@ -7,8 +7,8 @@ terraform {
 
 module "provider" {
   source = "./modules/provider"
-  access_key = var.aws_access_key
-  secret_key = var.aws_secret_key
+  access_key_temp = var.aws_access_key
+  secret_key_temp = var.aws_secret_key
 }
 
 module "vpc" {
