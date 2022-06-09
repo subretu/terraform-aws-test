@@ -12,5 +12,5 @@ module "VPC" {
 }
 
 module "subnet" {
-  source = "./subnet/vpc"
+  source = "./modules/subnet"
 }
