@@ -9,11 +9,11 @@ terraform {
 }
 
 module "provider" {
-  source = "../modules/provider"
+  source = "../../modules/provider"
   access_key_temp = var.AWS_ACCESS_KEY
   secret_key_temp = var.AWS_SECRET_KEY
 }
 
 module "vpc" {
-  source = "../modules/vpc"
+  source = "../../modules/vpc"
 }
