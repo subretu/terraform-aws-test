@@ -1,5 +1,5 @@
-variable "aws_access_key" {}
-variable "aws_secret_key" {}
+variable "AWS_ACCESS_KEY" {}
+variable "AWS_SECRET_KEY" {}
 
 terraform {
   required_version = ">= 0.12.28"
@@ -9,11 +9,11 @@ terraform {
 }
 
 module "provider" {
-  source = "./modules/provider"
-  access_key_temp = var.aws_access_key
-  secret_key_temp = var.aws_secret_key
+  source = "../modules/provider"
+  access_key_temp = var.AWS_ACCESS_KEY
+  secret_key_temp = var.AWS_SECRET_KEY
 }
 
 module "vpc" {
-  source = "./modules/vpc"
+  source = "../modules/vpc"
 }
