@@ -1,2 +1,2 @@
-variable "access_key_temp" {}
-variable "secret_key_temp" {}
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
