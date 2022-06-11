@@ -1,3 +1,6 @@
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+
 terraform {
   required_version = ">= 0.12.28"
   required_providers {
