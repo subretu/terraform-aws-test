@@ -27,10 +27,9 @@ module "secrets" {
 module "rds" {
   source = "../../modules/rds"
 
-  app_name       = "rds-sample"
   db_name        = "testdb"
   db_username    = "admin"
   db_password    = module.secrets.db_password
   vpc_id         = module.network.vpc_id
-  pri_subnet_ids = module.network.pri_subnet1_ids
+  pri_subnet1_ids = module.network.pri_subnet1_ids
 }
