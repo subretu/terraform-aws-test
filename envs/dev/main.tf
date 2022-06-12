@@ -1,6 +1,3 @@
-variable "AWS_ACCESS_KEY" {}
-variable "AWS_SECRET_KEY" {}
-
 terraform {
   required_version = ">=1.2.2"
   required_providers {
