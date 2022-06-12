@@ -19,13 +19,13 @@ module "vpc" {
 }
 
 module "secrets" {
-  source = "../../module/secrets"
+  source = "../../modules/secrets"
 
   name = "rds-sample"
 }
 
 module "rds" {
-  source = "../../module/rds"
+  source = "../../modules/rds"
 
   app_name       = "rds-sample"
   db_name        = "testdb"
