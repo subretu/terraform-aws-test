@@ -2,9 +2,12 @@ variable "AWS_ACCESS_KEY" {}
 variable "AWS_SECRET_KEY" {}
 
 terraform {
-  required_version = ">= 0.12.28"
+  required_version = ">=1.2.2"
   required_providers {
-    aws = ">= 2.70.0"
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
   }
 }
 
