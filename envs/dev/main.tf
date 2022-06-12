@@ -32,5 +32,5 @@ module "rds" {
   db_username    = "admin"
   db_password    = module.secrets.db_password
   vpc_id         = module.network.vpc_id
-  pri_subnet_ids = module.network.pri_subnet_ids
+  pri_subnet_ids = module.network.pri_subnet1_ids
 }
