@@ -6,6 +6,13 @@ terraform {
       version = "~> 3.0"
     }
   }
+  backend "remote" {
+    organization = var.organization
+
+    workspaces {
+      name = va.workspace
+    }
+  }
 }
 
 module "provider" {
