@@ -10,8 +10,7 @@ resource "aws_vpc" "test-vpc" {
   }
 }
 
-# Subnet
-## Public
+# Public Subnet
 resource "aws_subnet" "public-1" {
     vpc_id = aws_vpc.test-vpc.id
     cidr_block = "10.0.1.0/24"
@@ -21,7 +20,7 @@ resource "aws_subnet" "public-1" {
     }
 }
 
-## Private
+## Private Subnet
 resource "aws_subnet" "private-1" {
     vpc_id = aws_vpc.test-vpc.id
     cidr_block = "10.0.2.0/24"
