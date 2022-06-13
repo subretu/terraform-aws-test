@@ -16,7 +16,7 @@ terraform {
 }
 
 module "provider" {
-  source = "../../modules/provider"
+  source          = "../../modules/provider"
   access_key_temp = var.AWS_ACCESS_KEY
   secret_key_temp = var.AWS_SECRET_KEY
 }
@@ -34,9 +34,9 @@ module "secrets" {
 module "rds" {
   source = "../../modules/rds"
 
-  db_name        = "testdb"
-  db_username    = "admin"
-  db_password    = module.secrets.db_password
-  vpc_id         = module.vpc.vpc_id
+  db_name         = "testdb"
+  db_username     = "admin"
+  db_password     = module.secrets.db_password
+  vpc_id          = module.vpc.vpc_id
   pri_subnet1_ids = module.vpc.pri_subnet1_ids
 }
