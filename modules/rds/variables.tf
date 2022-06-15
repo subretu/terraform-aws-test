@@ -1,8 +1,12 @@
 variable "db_name" {}
 
-variable "db_username" {}
+variable "db_username" {
+  sensitive = true
+}
 
-variable "db_password" {}
+variable "db_password" {
+  sensitive = true
+}
 
 variable "vpc_id" {}
 

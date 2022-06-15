@@ -15,5 +15,4 @@ resource "aws_secretsmanager_secret" "db-password" {
 resource "aws_secretsmanager_secret_version" "db-password" {
   secret_id     = aws_secretsmanager_secret.db-password.id
   secret_string = random_password.db-password.result
-  sensitive     = true
 }
