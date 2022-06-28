@@ -10,7 +10,7 @@ variable "db_password" {
 
 variable "vpc_id" {}
 
-variable "pri_subnet1_ids" {}
+variable "pri_subnet_ids" {}
 
 variable "engine" { default = "mysql" }
 
