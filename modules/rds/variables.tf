@@ -10,7 +10,7 @@ variable "db_password" {
 
 variable "vpc_id" {}
 
-variable "pri_subnet_ids" {}
+variable "pri_subnet_ids" { type = list(string) }
 
 variable "engine" { default = "mysql" }
 
