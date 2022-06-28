@@ -34,9 +34,10 @@ module "secrets" {
 module "rds" {
   source = "../../modules/rds"
 
-  db_name        = "testdb"
-  db_username    = "admin"
-  db_password    = module.secrets.db_password
-  vpc_id         = module.vpc.vpc_id
-  pri_subnet_ids = [module.vpc.pri_subnet1_ids, module.vpc.pri_subnet2_ids]
+  db_name         = "testdb"
+  db_username     = "admin"
+  db_password     = module.secrets.db_password
+  vpc_id          = module.vpc.vpc_id
+  pri_subnet1_ids = module.vpc.pri_subnet1_ids
+  pri_subnet2_ids = module.vpc.pri_subnet2_ids
 }
