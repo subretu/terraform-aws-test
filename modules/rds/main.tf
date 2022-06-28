@@ -22,5 +22,5 @@ resource "aws_db_instance" "rds" {
 resource "aws_db_subnet_group" "rds-subnet-group" {
   name        = var.db_name
   description = "rds subnet group for ${var.db_name}"
-  subnet_ids  = ["${var.pri_subnet1_ids}", "${var.pri_subnet2_ids}"]
+  subnet_ids  = [var.pri_subnet1_ids, var.pri_subnet2_ids]
 }
