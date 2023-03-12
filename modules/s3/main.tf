@@ -11,14 +11,24 @@ data "aws_iam_policy_document" "s3_policy" {
   }
 }
 
-
-resource "aws_s3_bucket" "subretu-vue-webhost" {
-  bucket = "subretu-vue-webhost"
-  acl    = "public-read"
+resource "aws_s3_bucket" "subretu_vue_webhost" {
+  bucket = "subretu_vue_webhost"
   policy = data.aws_iam_policy_document.s3_policy.json
+}
 
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
+resource "aws_s3_bucket_acl" "subretu_vue_webhost_acl" {
+  bucket = aws_s3_bucket.subretu_vue_webhost.id
+  acl    = "public-read"
+}
+
+resource "aws_s3_bucket_website_configuration" "subretu_vue_webhost_website_config" {
+  bucket = aws_s3_bucket.subretu_vue_webhost.id
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "index.html"
   }
 }
