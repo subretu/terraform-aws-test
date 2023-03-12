@@ -1,4 +1,13 @@
-data "aws_iam_policy_document" "s3_policy" {
+resource "aws_s3_bucket" "subretu_vue_webhost" {
+  bucket = "subretu_vue_webhost"
+}
+
+resource "aws_s3_bucket_policy" "subretu_vue_webhost_allow_access" {
+  bucket = aws_s3_bucket.subretu_vue_webhost.id
+  policy = data.aws_iam_policy_document.subretu_vue_webhost_allow_access.json
+}
+
+data "aws_iam_policy_document" "subretu_vue_webhost_allow_access" {
   statement {
     actions = ["s3:GetObject"]
     effect  = "Allow"
@@ -6,14 +15,9 @@ data "aws_iam_policy_document" "s3_policy" {
       type        = "AWS"
       identifiers = ["*"]
     }
-    resources = ["arn:aws:s3:::subretu-vue-webhost/*"]
+    resources = ["arn:aws:s3:::subretu_vue_webhost/*"]
     sid       = "PublicReadGetObject"
   }
-}
-
-resource "aws_s3_bucket" "subretu_vue_webhost" {
-  bucket = "subretu_vue_webhost"
-  policy = data.aws_iam_policy_document.s3_policy.json
 }
 
 resource "aws_s3_bucket_acl" "subretu_vue_webhost_acl" {
