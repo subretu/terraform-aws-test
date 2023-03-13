@@ -22,7 +22,6 @@ data "aws_iam_policy_document" "subretu-vue-webhost_allow_access" {
 
 resource "aws_s3_bucket_acl" "subretu-vue-webhost_acl" {
   bucket = aws_s3_bucket.subretu-vue-webhost.id
-  acl    = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "subretu-vue-webhost_website_config" {
