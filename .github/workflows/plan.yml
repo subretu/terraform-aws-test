@@ -29,6 +29,3 @@ jobs:
         run: |
           terraform init
           terraform plan
-        env:
-          TF_VAR_organization: ${{ secrets.SECRET_NAME }}
-          TF_VAR_workspace: ${{ secrets.SECRET_NAME }}
