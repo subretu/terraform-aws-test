@@ -13,10 +13,8 @@ terraform {
   }
 }
 
-module "provider" {
-  source          = "../../modules/provider"
-  access_key_temp = var.AWS_ACCESS_KEY
-  secret_key_temp = var.AWS_SECRET_KEY
+provider "aws" {
+  region = "ap-northeast-1"
 }
 
 module "s3" {
