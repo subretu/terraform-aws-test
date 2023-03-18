@@ -6,12 +6,10 @@ terraform {
       version = "~> 4.27"
     }
   }
-  cloud "remote" {
-    organization = var.organization
-
-    workspaces {
-      name = var.workspace
-    }
+  backend "s3" {
+    bucket = "terraform-miyaretu-work"
+    key    = "terraform.tfstate"
+    region = "ap-northeast-1"
   }
 }
 
