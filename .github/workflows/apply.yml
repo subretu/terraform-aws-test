@@ -28,4 +28,4 @@ jobs:
         working-directory: ./envs/dev3
         run: |
           terraform init
-          terraform apply
+          terraform apply -auto-approve
