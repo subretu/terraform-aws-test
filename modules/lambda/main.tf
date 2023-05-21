@@ -1,5 +1,5 @@
 locals {
-  function_name = "my_lambda_function"
+  function_name = "lambda_function"
 }
 
 data "archive_file" "function_source" {
