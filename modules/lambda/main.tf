@@ -4,7 +4,7 @@ locals {
 
 data "archive_file" "function_source" {
   type        = "zip"
-  source_dir  = "src"
+  source_dir  = "../../src"
   output_path = "archive/my_lambda_function.zip"
 }
 
