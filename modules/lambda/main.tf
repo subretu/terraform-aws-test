@@ -1,7 +1,3 @@
-locals {
-  function_name = "lambda_function"
-}
-
 data "archive_file" "function_source" {
   type        = "zip"
   source_dir  = "../../src"
@@ -9,13 +5,16 @@ data "archive_file" "function_source" {
 }
 
 resource "aws_lambda_function" "function" {
-  function_name = local.function_name
+  function_name = "lambda_function"
   handler       = "lambda_function.handler"
   role          = aws_iam_role.lambda_role.arn
   runtime       = "python3.9"
 
   filename         = data.archive_file.function_source.output_path
   source_code_hash = data.archive_file.function_source.output_base64sha256
+
+  memory_size = 256
+  timeout     = 60
 }
 
 # Lambda関数用の最小限のIAMロールの定義
