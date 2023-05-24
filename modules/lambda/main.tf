@@ -7,7 +7,7 @@ data "archive_file" "function_source" {
 resource "aws_lambda_function" "function" {
   function_name = "lambda_function"
   handler       = "lambda_function.handler"
-  role          = aws_iam_role.lambda_role.arn
+  role          = aws_iam_role.lambda.arn
   runtime       = "python3.9"
 
   filename         = data.archive_file.function_source.output_path
@@ -17,21 +17,31 @@ resource "aws_lambda_function" "function" {
   timeout     = 60
 }
 
-# Lambda関数用の最小限のIAMロールの定義
-resource "aws_iam_role" "lambda_role" {
-  name               = "lambda_role_sample"
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Principal": {
-        "Service": "lambda.amazonaws.com"
-      },
-      "Action": "sts:AssumeRole"
+# Lambda関数用のIAMロールの定義
+data "aws_iam_policy_document" "lambda_assume_role_document" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      identifiers = [
+        "lambda.amazonaws.com"
+      ]
+      type = "Service"
     }
-  ]
+
+    actions = [
+      "sts:AssumeRole"
+    ]
+  }
 }
-EOF
+
+resource "aws_iam_role" "lambda" {
+  name               = "sample-lambda-role"
+  path               = "/"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume_role_document.json
+}
+
+resource "aws_iam_role_policy_attachment" "aws_lambda_basic_execution_role" {
+  role       = aws_iam_role.lambda.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
