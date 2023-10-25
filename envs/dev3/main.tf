@@ -8,7 +8,7 @@ terraform {
   }
   backend "s3" {
     bucket = "terraform-miyaretu-work"
-    key    = "terraform.tfstate"
+    key    = "subretu-test/terraform.tfstate"
     region = "ap-northeast-1"
   }
 }
