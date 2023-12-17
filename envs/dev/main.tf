@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.27"
+      version = "~> 5.31"
     }
   }
   backend "remote" {
