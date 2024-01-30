@@ -28,7 +28,7 @@ resource "aws_dynamodb_table_item" "members" {
   hash_key   = aws_dynamodb_table.members.hash_key
 
   item = jsonencode({
-    mail   = each.key
+    mail   = each.value["mail"]["S"]
     name   = each.value["name"]["S"]
     github = contains(keys(each.value), "github") ? each.value["github"]["S"] : "default"
   })
