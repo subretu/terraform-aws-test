@@ -17,7 +17,7 @@ resource "aws_dynamodb_table" "members" {
 }
 
 locals {
-  json_data = file("../../src/members.json")
+  json_data = file("../../json/members.json")
   members   = jsondecode(local.json_data)
 }
 
