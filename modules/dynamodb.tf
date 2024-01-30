@@ -28,7 +28,7 @@ resource "aws_dynamodb_table_item" "members" {
   hash_key   = aws_dynamodb_table.members.hash_key
 
   item = {
-    mail   = each.key
+    mail   = each.value["mail"]
     name   = each.value["name"]
     github = contains(keys(each.value), "github") ? each.value["github"] : "default"
   }
